@@ -7,7 +7,6 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
 * [License](#license)
@@ -15,16 +14,19 @@
 * [Acknowledgements](#acknowledgements)
 
 ## About The Project
-<img src="Readme/Images/Dashboard" align="Center" alt="Dashboard of the page" width="100" height="54">
+<img alt="Dashboard of the page"  src="https://github.com/AitorGarciaM/BugAndPlan/Readme/Images/Dashboard" height="54" width="100" align="Center">
 
 There are many great BugTrackers but I didn't find one that implements a Project Manager, so I decided to create one that include it.
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
 * You shouldn't be loosing time copy pasting tasks form the BugTracker to your scrum backlog
-<img src="Readme/Images/Projects" align="left" alt="Page that show all projects of the user" width="100" height="54">
+
+<img alt="Page that show all projects of the user" src="https://github.com/AitorGarciaM/BugAndPlan/Readme/Images/Projects" height="54" width="100" align="left">
+
 At this time the project manager it's not included, but I'll be adding features in my free time, like the project manager or other 
 specified in the Roadmap. You may also suggest changes by forking this repository and creating a pull request or opening an issue.
-<img src="Readme/Images/Users" align="right" alt="Page that show all the users of the project" width="100" height="54">
+<img alt="Page that show all the users of the project" src="https://github.com/AitorGarciaM/BugAndPlan/Readme/Images/Users" height="54" width="100" align="right">
+
 ### Built With
 This project uses:
 * [Bootstrap](https://getbootstrap.com)
@@ -32,7 +34,8 @@ This project uses:
 * [Laravel](https://laravel.com)
 
 ## Getting Started
-<img src="Readme/Images/Projects" align="right" alt="Page that show all the users of the project" width="100" height="54">
+<img alt="Page that show all the users of the project" src="https://github.com/AitorGarciaM/BugAndPlan/Readme/Images/Projects" height="54" width="100" align="right">
+
 ### Prerequisites
 * Apache
 * PHP >= 7.3
