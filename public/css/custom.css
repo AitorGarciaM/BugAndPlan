@@ -1,0 +1,204 @@
+body.login
+{
+	background-image: linear-gradient(to top left, #66b3ff, #e6ccff);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+div.border
+{
+	background-color: #ffffff;
+}
+
+div.center
+{
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 15%;
+	padding-bottom: 15%;
+}
+
+form.center
+{
+	margin-left: 15%;
+	margin-top: 5%;
+}
+
+body.dashboard
+{
+	background-color: #f8f8f8;
+}
+
+.workspace
+{
+	margin: 0.5%;
+	box-shadow: 5px 5px 5px #aaaaaa;
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+
+h3.title
+{
+	color: #ce99ff;
+	text-align: center;
+}
+
+.list-group
+{
+	margin-bottom: 5%;
+}
+
+@media (min-width: 720px) {
+  .footer {
+    margin-left: 90px;
+  }
+  .footer {
+    margin-left: 225px;
+  }
+}
+
+.footer
+{
+	box-shadow: 10px 0px 5px #aaaaaa inset;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #e9ecef;
+}
+.nav-link-dark
+{
+	text-align: center;
+  	padding: 0.75rem 1rem;
+  	width: 90px;
+	color: rgba(120, 120, 120, 0.75);
+}
+
+.nav-link-dark:hover
+{
+	color: #ce99ff;
+	text-decoration: none;
+	background-color: rgba(255,255,255,1);
+}
+
+.fixed-size
+{
+	resize: none;
+}
+
+.workspace-link
+{
+	color: rgba(120, 120, 120, 0.75);
+	text-decoration: none;
+	margin-left: 5%;
+
+}
+
+.project-link
+{
+	color: rgba(120, 120, 120, 0.75);
+	text-decoration: none;
+}
+
+.workspace-link:hover, .project-link:hover
+{
+	text-decoration: none;
+	color: #ce99ff;
+}
+
+.workspace-list-item, .forum-item
+{
+	box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.workspace-list-item
+{
+	margin-bottom: 5%;
+}
+
+.listed-date
+{
+	color:rgba(120, 120, 120, 0.75);
+}
+
+.listed-date small
+{
+	margin-left: 15%;
+}
+
+.forum-item
+{
+	margin-top: 2%;
+}
+
+.post-title
+{
+	color: #444444;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	margin-left: 2%;
+	margin-top: 1%;
+}
+
+.post-author
+{
+	color: #7a7a7a;
+	margin-top: 2%;
+	margin-left: 1%;
+}
+
+.post-comments
+{
+	color: #606060;
+	margin-left: 91%;
+}
+
+.post-content
+{
+	margin-left: 3%;
+	margin-top: 1%;
+}
+
+#post-closed, #post-open
+{
+	margin-left: 91%;
+}
+
+#post-open
+{
+	color: #cccccc;
+}
+
+
+
+.floating-button
+{
+	background-color: #ae7bdf;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 1.25%;
+	padding-right: 1.25%;
+}
+
+.user-nav-item
+{
+	margin-top: 300%;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#FFFFFF;
+  height: 1px;
+}
+
+.ml-56
+{
+	margin-left: 56%;
+}
