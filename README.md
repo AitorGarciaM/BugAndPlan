@@ -15,7 +15,7 @@
 
 ## About The Project
 <p>
-<img alt="Dashboard of the page" src="https://raw.githubusercontent.com/AitorGarciaM/BugAndPlan/main/Readme/Images/Dashboard.PNG" height="216" width="400" align="center">
+<img alt="Dashboard of the page" src="https://raw.githubusercontent.com/AitorGarciaM/BugAndPlan/main/Readme/Images/Dashboard.PNG" height="216" width="400" align="Center">
 </p>
 
 There are many great BugTrackers but I didn't find one that implements a Project Manager, so I decided to create one that include it.
@@ -24,11 +24,12 @@ Here's why:
 * You shouldn't be loosing time copy pasting tasks form the BugTracker to your scrum backlog
 
 <p>
-<img alt="Page that show all projects of the user" src="/main/Readme/Images/Projects.PNG" height="216" width="400" align="left">
+<img alt="Page that show all projects of the user" src="https://raw.githubusercontent.com/AitorGarciaM/BugAndPlan/main/Readme/Images/Projects.PNG" height="216" width="400" align="right">
 </p>
 
 At this time the project manager it's not included, but I'll be adding features in my free time, like the project manager or other 
 specified in the Roadmap. You may also suggest changes by forking this repository and creating a pull request or opening an issue.
+
 <p>
 <img alt="Page that show all the users of the project" src="https://raw.githubusercontent.com/AitorGarciaM/BugAndPlan/main/Readme/Images/Users.PNG" height="216" width="400" align="right">
 </p>
