@@ -84,9 +84,9 @@ The next features that will be included in Bug&Plan are:
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the project
-2. Create your Feature Branch (```sh git checkout -b feature/[YourAmazingNewFeature]```)
-3. Commit your changes (```sh git commit -m "Add [YourAmazingNewFeature]"```)
-4. Push to the Branch (```sh git push origin feature/[YourAmazingNewFeature]```)
+2. Create your Feature Branch (``` git checkout -b feature/[YourAmazingNewFeature]```)
+3. Commit your changes (``` git commit -m "Add [YourAmazingNewFeature]"```)
+4. Push to the Branch (``` git push origin feature/[YourAmazingNewFeature]```)
 5. Open a Pull Request
 
 ## License
