@@ -1,7 +1,7 @@
 <h3 align="center> Bug&Plan </h3>
 <p align="center">A BugTracker created with Laravel<p>
+                 
 ## Table of Contents
-
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
@@ -15,16 +15,16 @@
 * [Acknowledgements](#acknowledgements)
 
 ## About The Project
-<img src="Readme/Images/Dashboard" alt="Dashboard of the page" width="80" height="80">
+<img src="Readme/Images/Dashboard" align="Center" alt="Dashboard of the page" width="100" height="54">
 
 There are many great BugTrackers but I didn't find one that implements a Project Manager, so I decided to create one that include it.
 Here's why:
 * Your time should be focused on creating something amazing. A project that solves a problem and helps others
 * You shouldn't be loosing time copy pasting tasks form the BugTracker to your scrum backlog
-
+<img src="Readme/Images/Projects" align="left" alt="Page that show all projects of the user" width="100" height="54">
 At this time the project manager it's not included, but I'll be adding features in my free time, like the project manager or other 
 specified in the Roadmap. You may also suggest changes by forking this repository and creating a pull request or opening an issue.
-
+<img src="Readme/Images/Users" align="right" alt="Page that show all the users of the project" width="100" height="54">
 ### Built With
 This project uses:
 * [Bootstrap](https://getbootstrap.com)
@@ -32,7 +32,7 @@ This project uses:
 * [Laravel](https://laravel.com)
 
 ## Getting Started
-
+<img src="Readme/Images/Projects" align="right" alt="Page that show all the users of the project" width="100" height="54">
 ### Prerequisites
 * Apache
 * PHP >= 7.3
