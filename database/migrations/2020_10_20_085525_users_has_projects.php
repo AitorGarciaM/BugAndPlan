@@ -6,31 +6,32 @@ use Illuminate\Support\Facades\Schema;
 
 class UsersHasProjects extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::enableForeignKeyConstraints();
+	/**
+	* Run the migrations.
+	*
+	* @return void
+	*/
+	public function up()
+	{
+		Schema::enableForeignKeyConstraints();
 
-        Schema::create('users_has_projects', function (Blueprint $table)
-        {
-            $table->bigIncrements('id');
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('project_id')->references('id')->on('projects');
-            $table->timestamps();
-        });
-    }
+		Schema::create('users_has_projects', function (Blueprint $table)
+		{
+			$table->bigIncrements('id');
+			$table->foreignId('user_id')->references('id')->on('users');
+			$table->foreignId('project_id')->references('id')->on('projects');
+			$table->foreignId('role_id')->nullable()->references('id')->on('roles');
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('users_has_projects');
-    }
+	/**
+	* Reverse the migrations.
+	*
+	* @return void
+	*/
+	public function down()
+	{
+		Schema::drop('users_has_projects');
+	}
 }

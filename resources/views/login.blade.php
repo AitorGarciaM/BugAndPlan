@@ -7,7 +7,7 @@
 	<title>My site - Login</title>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/bootstrap.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">	
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
 </head>
 <body class="login">
 	<div class="container">
@@ -43,13 +43,13 @@
 
 			<form class="center" method="post" action="{{ url('/login/checkLogin') }}">	
 				{{ csrf_field() }}
-				<div class="form-group row">			
+				<div class="form-group row">
 					<h4>User Login</h4>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-20">
 						<lavel>User:</lavel><br>
-						<input class="form-control form-control-sm" id="login-username" type="email" name="email" > 
+						<input class="form-control form-control-sm" id="login-username" type="email" name="email">
 					</div>
 				</div>
 				<div class="form-group row">
@@ -59,13 +59,13 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<input type="submit" name="login" class="btn btn-primary" value="Login" />
+					<input type="submit" name="login" class="btn btn-primary" value="Login"/>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-20">
-						<p id="register">Don't you have an acount? <a href="#">register here</a> .</p>	
+						<p id="register">Don't you have an acount? <a href="#">register here</a>.</p>
 					</div>
-				</div>			
+				</div>
 			</form>
 		</div>
 	</div>

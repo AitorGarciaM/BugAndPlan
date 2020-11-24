@@ -52,12 +52,12 @@ h3.title
 }
 
 @media (min-width: 720px) {
-  .footer {
-    margin-left: 90px;
-  }
-  .footer {
-    margin-left: 225px;
-  }
+	.footer {
+		margin-left: 90px;
+	}
+	.footer {
+		margin-left: 225px;
+	}
 }
 
 .footer
@@ -73,8 +73,8 @@ h3.title
 .nav-link-dark
 {
 	text-align: center;
-  	padding: 0.75rem 1rem;
-  	width: 90px;
+	padding: 0.75rem 1rem;
+	width: 90px;
 	color: rgba(120, 120, 120, 0.75);
 }
 
@@ -95,7 +95,6 @@ h3.title
 	color: rgba(120, 120, 120, 0.75);
 	text-decoration: none;
 	margin-left: 5%;
-
 }
 
 .project-link
@@ -190,12 +189,12 @@ h3.title
 }
 
 hr {
-  border: 0;
-  clear:both;
-  display:block;
-  width: 96%;               
-  background-color:#FFFFFF;
-  height: 1px;
+	border: 0;
+	clear:both;
+	display:block;
+	width: 96%;
+	background-color:#FFFFFF;
+	height: 1px;
 }
 
 .ml-56

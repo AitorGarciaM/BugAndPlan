@@ -6,27 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 class IssueStatus extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('issue_statuses', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('type');
-            $table->timestamps();
-        });
-    }
+	/**
+	* Run the migrations.
+	*
+	* @return void
+	*/
+	public function up()
+	{
+		Schema::create('issue_statuses', function (Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->string('type');
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('issue_statuses');
-    }
+	/**
+	* Reverse the migrations.
+	*
+	* @return void
+	*/
+	public function down()
+	{
+		Schema::dropIfExists('issue_statuses');
+	}
 }

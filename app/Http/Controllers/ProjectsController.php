@@ -9,82 +9,90 @@ use App\Issue;
 
 class ProjectsController extends Controller
 {
-    public function index()
-    {
-    	$user = auth()->user();
-        $projects = $user->projects()->orderBy('created_at', 'desc')->get();
-        
-    	return view('projects')->with('projects', $projects);
-    }
+	public function index()
+	{
+		$user = auth()->user();
+		$projects = $user->projects()->orderBy('created_at', 'desc')->get();
 
-    public function createProject(Request $request)
-    {
-    	$request->validate([
-    		'name' => 'required|min:2'
-    	]);
+		return view('projects')->with('projects', $projects);
+	}
 
-    	$project = new Project([
-    		'name'=> $request->get('name'),
-    		'description' => $request->get('description')
-    	]);
+	public function createProject(Request $request)
+	{
+		$request->validate([
+			'name' => 'required|min:2'
+		]);
 
-    	$user = auth()->user();
+		$project = new Project([
+			'name'=> $request->get('name'),
+			'description' => $request->get('description')
+		]);
 
-    	$project->save();
+		$user = auth()->user();
+		$project->save();
+		$project->users()->attach($user->id, ['role_id' => 1]);
 
-    	$project->users()->attach($user);    	
+		return redirect('/projects')->with('success', 'the project has been created correctly.');
+	}
 
-    	return redirect('/projects')->with('success', 'the project has been created correctly.');
-    }
+	public function showProject($name)
+	{
 
-    public function showProject($name)
-    {
+		$user = auth()->user();
+		$project = $user->projects()->where('name', $name)->get();
+		foreach($user->projects() as $project)
+		{
+			if($project->name == $name)
+			{
+				$role = $project->pivot->role_id;
+			}
+		}
+				
+		return view('project')->with('project', $project)->with('role', $role);
+		
+	}
 
-        $project = Project::where('name', $name)->with('users')->first();
-        return view('project')->with('project', $project);
-    }
+	public function showUsers($name)
+	{
+		$project = Project::where('name', '=', $name)->with('users')->first();
 
-    public function showUsers($name)
-    {
-        $project = Project::where('name', '=', $name)->with('users')->first();
+		return view('users')->with('project', $project);
+	}
 
-        return view('users')->with('project', $project);
-    }
+	public function showPosts($name)
+	{
 
-    public function showPosts($name)
-    {
+		$project = Project::where('name', '=', $name)->with('users')->first();
 
-        $project = Project::where('name', '=', $name)->with('users')->first();
+		return view('forum')->with('project', $project);
+	}
 
-        return view('forum')->with('project', $project);
-    }
+	public function addUser(Request $request,$name)
+	{
+		$project = Project::where('name', '=', $name)->first();
+		$user = User::where('email', $request->get('email'))->get();
+		$project->users()->attach($user, ['role_id' => $request->get('role')]);
+		return redirect()->back()->with('success', 'User has been added to '.$name.' correctly.');
+	}
 
-    public function addUser(Request $request,$name)
-    {
-        $project = Project::where('name', '=', $name)->first();
-        $user = User::where('email', $request->get('email'))->get();
-        $project->users()->attach($user);
-        return redirect()->back()->with('success', 'User has been added to '.$name.' correctly.');
-    }
+	public function updateProject($id, Request $request)
+	{
+		$project = DB::table('projects')->where('id', $id)->update(['description' => $request->get('description')]);
+	}
 
-    public function updateProject($id, Request $request)
-    {
-        $project = DB::table('projects')->where('id', $id)->update(['description' => $request->get('description')]);
-    }
+	public function deleteProject($id)
+	{
+		$project = Project::where('id', $id);
+		Issue::where('project_id', $id)->delete();
+		$project->delete();
 
-    public function deleteProject($id)
-    {
-        $project = Project::where('id', $id);
-        Issue::where('project_id', $id)->delete();
-        $project->delete();
+		return redirect()->back()->with('success', 'Project has been deleted.');
+	}
 
-        return redirect()->back()->with('success', 'Project has been deleted.');
-    }
-
-    public function removeUser($name,$id)
-    {
-        $project = Project::where('name', '=', $name)->with('users')->first();
-        $project->users()->detach($id);
-        return redirect()->back()->with('success', 'User has been removed from '.$name.' correctly.');
-    }
+	public function removeUser($name,$id)
+	{
+		$project = Project::where('name', '=', $name)->with('users')->first();
+		$project->users()->detach($id);
+		return redirect()->back()->with('success', 'User has been removed from '.$name.' correctly.');
+	}
 }

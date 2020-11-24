@@ -5,14 +5,14 @@ use App\IssueStatus;
 
 class Status extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $status1 = IssueStatus::create([
+	/**
+	* Run the database seeds.
+	*
+	* @return void
+	*/
+	public function run()
+	{
+		$status1 = IssueStatus::create([
 			'type'				=>			'Planned'
 		]);  
 		$status2 = IssueStatus::create([
@@ -23,6 +23,6 @@ class Status extends Seeder
 		]);  
 		$status4 = IssueStatus::create([
 			'type'				=>			'Completed'
-		]);      
-    }
+		]);
+	}
 }

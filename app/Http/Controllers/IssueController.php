@@ -12,84 +12,94 @@ class IssueController extends Controller
 {
 	public function index($name)
 	{
-		$project = $project = Project::where('name', '=', $name)->with('users')->first();
-        $issues = Issue::where('project_id', $project->id)->get();
-    	return view('project')->with('issues', $issues)->with('project', $project);
+		$user = auth()->user();
+		$project = Project::where('name', '=', $name)->first();
+		$issues = Issue::where('project_id', $project->id)->get();
+		$role = null;
+		foreach($user->projects()->get() as $tempProject)
+		{
+			if($tempProject->id == $project->id)
+			{
+				$role = $tempProject->pivot->role_id;
+			}
+		}
+
+		return view('project')->with('project', $project)->with('role', $role)->with('issues',$issues);
 	}
 
-    public function reportIssue(Request $request, $name)
-    {
-    	$project = Project::where('name', $name)->with('users')->first();
+	public function reportIssue(Request $request, $name)
+	{
+		$project = Project::where('name', $name)->with('users')->first();
 
-    	$request->validate([
-    		'title' => 'required|min:2'
-    	]);
+		$request->validate([
+			'title' => 'required|min:2'
+		]);
 
-    	$issue = new Issue([
-    		'title' => $request->get('title'),
-    		'description' => $request->get('description')
-    	]);   	
+		$issue = new Issue([
+			'title' => $request->get('title'),
+			'description' => $request->get('description')
+		]);
 
-    	$issueStatus = IssueStatus::where(['type' => 'Planned'])->firstOrFail();
-    	$issue->status_id = $issueStatus->id;
+		$issueStatus = IssueStatus::where(['type' => 'Planned'])->firstOrFail();
+		$issue->status_id = $issueStatus->id;
 
-    	$issuePriority = IssuePriority::where(['type' => $request->get('priority')])->firstOrFail();
+		$issuePriority = IssuePriority::where(['type' => $request->get('priority')])->firstOrFail();
 		$issue->priority_id = $issuePriority->id;
 
 		$issue->project_id = $project->id;
 
 		$user = auth()->user();
 		$issue->created_by_user_id = $user->id;
-        
+
 		$issue->save();
 
-    	return redirect()->back()->with('success', 'the Issue has been reported correctly.');
-    }
+		return redirect()->back()->with('success', 'the Issue has been reported correctly.');
+	}
 
-    public function editStatus(Request $request,$name, $issue_id)
-    {
-        $request->validate([
-            'status' =>'required|min:1'
-        ]);
-        
-        $issue = Issue::find($issue_id);
-        $issueStatusID = $request->get('status');
-        $issue->status_id = $issueStatusID;
-        $issue->save(); 
+	public function editStatus(Request $request,$name, $issue_id)
+	{
+		$request->validate([
+			'status' =>'required|min:1'
+		]);
 
-        return redirect()->back()->with('success', 'the issue has been edited correctly.');
-    }
+		$issue = Issue::find($issue_id);
+		$issueStatusID = $request->get('status');
+		$issue->status_id = $issueStatusID;
+		$issue->save(); 
 
-    public function editPriority(Request $request, $name, $issue_id)
-    {
-        $request->validate([
-            'priority' =>'required|min:1'
-        ]);
-        
-        $issue = Issue::find($issue_id);
-        $issuePriotiryID = $request->get('priority');
-        $issue->priority_id = $issuePriotiryID;
-        $issue->save(); 
+		return redirect()->back()->with('success', 'the issue has been edited correctly.');
+	}
 
-        return redirect()->back()->with('success', 'the issue has been edited correctly.');
-    }
+	public function editPriority(Request $request, $name, $issue_id)
+	{
+		$request->validate([
+			'priority' =>'required|min:1'
+		]);
 
-    public function closeIssue($name,$issue_id)
-    {
-        $issue = Issue::find($issue_id);
-        if(!$issue)
-        {
-           return back()->with('success', 'the issue could not be found.'.$issue_id);
-        }
-        $issue->closed_by_user_id = auth()->user()->id;
+		$issue = Issue::find($issue_id);
+		$issuePriotiryID = $request->get('priority');
+		$issue->priority_id = $issuePriotiryID;
+		$issue->save(); 
 
-        $issue->save();
+		return redirect()->back()->with('success', 'the issue has been edited correctly.');
+	}
 
-        return redirect()->back()->with('success', 'the issue has been closed correctly.');
-    }
+	public function closeIssue($name,$issue_id)
+	{
+		$issue = Issue::find($issue_id);
+		if(!$issue)
+		{
+			return back()->with('success', 'the issue could not be found.'.$issue_id);
+		}
+		$issue->closed_by_user_id = auth()->user()->id;
 
-    public function delete($id)
-    {
-        Issue::find($id)->delete();
-    }
+		$issue->save();
+
+		return redirect()->back()->with('success', 'the issue has been closed correctly.');
+	}
+
+	public function delete($id)
+	{
+		Issue::find($id)->delete();
+	}
 }

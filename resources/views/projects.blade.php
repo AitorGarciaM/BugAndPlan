@@ -8,9 +8,7 @@
 			<tr>
 				<th scope="col">Name</th>
 				<th scope="col">Created at</th>
-				@hasrole('admin')
 				<th scope="col">Delete</th>
-				@endhasrole
 			</tr>
 		</thead>
 		<tbody>
@@ -18,9 +16,9 @@
 				<tr>
 					<td><a class="project-link" href="{{ url('/projects/'.$project->name) }}">{{$project->name}}</a></td>
 					<td><p class="listed-date">{{\Carbon\Carbon::parse($project->created_at)->format('d/m/Y')}}</p></td>
-					@hasrole('admin')
+					@if($project->pivot->role_id == 1)
 					<td><a class="btn btn-danger" href="{{url('/projects/delete/'.$project->id)}}">Delete</a></td>
-					@endhasrole
+					@endif
 				</tr>
 			@endforeach
 		</tbody>

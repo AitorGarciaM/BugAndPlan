@@ -14,7 +14,7 @@
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col workspace border rounded">			
+		<div class="col workspace border rounded">
 			<h3 class="title"><i class="fas fa-cube"></i> Projects</h3>
 			<div class="">
 				@if(isset(Auth::user()->email))
@@ -25,8 +25,8 @@
 					</div>
 					@endforeach
 				@endif
-			</div>			
+			</div>
 		</div>
 	</div>
-</div>	
+</div>
 @endsection

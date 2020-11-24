@@ -28,8 +28,6 @@ Route::post('/create-project', 'ProjectsController@createProject');
 
 Route::get('/projects', 'ProjectsController@index');
 
-Route::get('/projects/{name}', 'WorkspaceController@showProjects');
-
 Route::get('/projects/delete/{id}', ['uses' => 'ProjectsController@deleteProject']);
 
 Route::get('/projects/{name}', ['uses' => 'IssueController@index']);
@@ -40,7 +38,7 @@ Route::post('/projects/{name}/users/add-user', ['uses' => 'ProjectsController@ad
 
 Route::get('/projects/{name}/users/{id}', ['uses' => 'ProjectsController@removeUser']);
 
-Route::post('/projects/users/{user_id}', ['uses' => 'UserController@updateRole']);
+Route::post('/projects/users/{user_id}/{project_id}', ['uses' => 'UserController@updateRole']);
 
 Route::get('/settings', 'WorkspaceController@settings');
 

@@ -24,7 +24,6 @@
 @endsection
 
 @section('content')
-	
 	<a class="btn floating-button rounded-circle" title="Report new issue" role="button" data-toggle="modal" id="createBug" href="#createBugModal">
 		<i class="fas fa-plus text-white"></i>
 	</a>	
@@ -41,11 +40,12 @@
 				</tr>
 			</thead>
 			<tbody>	
+				{{$role}}
 				@foreach($issues as $issue)		
 				<tr>
 					<td class="align-middle text-center">{{$issue->title}}</td>
 					<td class="align-middle text-center">{{$issue->description}}</td>
-					@if(auth()->user()->hasRole(['admin|developer']) && !$issue->closed_by_user_id)
+					{{--@if(($role == 1 || $role == 2) && (!$issue->closed_by_user_id))--}}
 					<td class="align-middle text-center">
 						<form method="post" action="{{url('/projects/'.$project->name.'/update-issue-status/'.$issue->id)}}">
 							@csrf
@@ -68,10 +68,10 @@
 							</select>
 						</form>
 					</td>
-					@else
+					{{--@else--}}
 					<td class="align-middle text-center">{{$issue->status->type}}</td>
-					@endif
-					@if(auth()->user()->hasRole(['admin|developer']) && !$issue->closed_by_user_id)
+					{{--@endif--}}
+					{{--@if(($role == 1 || $role == 2) && (!$issue->closed_by_user_id))--}}
 					<td class="align-middle text-center">
 						<form method="post" action="{{url('/projects/'.$project->name.'/update-issue-priority/'.$issue->id)}}">
 							@csrf
@@ -94,9 +94,9 @@
 							</select>
 						</form>
 					</td>
-					@else
+					{{--@else--}}
 					<td class="align-middle text-center">{{$issue->priority->type}}</td>
-					@endif
+					{{--@endif--}}
 					<td class="align-middle text-center">{{App\User::where(['id' => $issue->created_by_user_id])->first()->name}}</td>
 					<td class="align-middle text-center">
 					@php 
@@ -132,7 +132,7 @@
 					@csrf
 				<div class="modal-body">
 					<div class="row">
-						<div class="col">						
+						<div class="col">
 							<div class="form-group">
 								<label>Title</label>
 								<input class="form-control" type="text" name="title">
@@ -155,9 +155,9 @@
 							<div class="form-group">
 								<label>Description</label>
 								<textarea class="form-control fixed-size" name="description" rows="3"></textarea>
-							</div>	
-						</div>	
-					</div>				
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

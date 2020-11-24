@@ -5,14 +5,14 @@ use App\IssuePriority;
 
 class Priorities extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        $priority1 = IssuePriority::create([
+	/**
+	* Run the database seeds.
+	*
+	* @return void
+	*/
+	public function run()
+	{
+	$priority1 = IssuePriority::create([
 			'type'				=>			'Low'
 		]); 
 		$priority2 = IssuePriority::create([
