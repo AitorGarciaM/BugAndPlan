@@ -81,12 +81,12 @@ php artisan serve
 ```
 ## Roadmap
 The next features that will be included in Bug&Plan are:
-* User roles depending on the project [x]
-* Forum system to discuss the Issue reports[]
+* [x] User roles depending on the project 
+* [] Forum system to discuss the Issue reports
 * Project Manager
-    - Task creation and Assignement[]
-    - Time tracking[]
-    - Automatice task creation when bug is reportedtice[]
+    - [] Task creation and Assignement
+    - [] Time tracking
+    - [] Automatice task creation when bug is reportedtice
     
 ## Contributing
 
