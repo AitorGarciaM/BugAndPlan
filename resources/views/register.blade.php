@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<title>My site - Login</title>
+	<title>My site - User Registration</title>
 
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap/bootstrap.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
@@ -41,29 +41,47 @@
 
 			@endif
 
-			<form class="center" method="post" action="{{ url('/login/checkLogin') }}">	
+			<form class="center" method="post" action="{{ url('/login/register') }}">	
 				{{ csrf_field() }}
 				<div class="form-group row">
-					<h4>User Login</h4>
+					<h4>User Registration</h4>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-20">
-						<lavel>User:</lavel><br>
-						<input class="form-control form-control-sm" id="login-username" type="email" name="email">
+						<lavel>User name:</lavel><br>
+						<input class="form-control form-control-sm" id="register-username" type="text" name="userName">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-20">
+						<lavel>User e-mail:</lavel><br>
+						<input class="form-control form-control-sm" id="register-userEmail" type="email" name="email">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-20">
+						<lavel>Confirm e-mail:</lavel><br>
+						<input class="form-control form-control-sm" id="register-confirmEmail" type="email" name="confirmEmail">
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-20">
 						<lavel>Password:</lavel><br>
-						<input class="form-control form-control-sm" id="login-userpassword" type="Password" name="password">
+						<input class="form-control form-control-sm" id="register-userpassword" type="Password" name="password">
 					</div>
 				</div>
 				<div class="form-group row">
-					<input type="submit" name="login" class="btn btn-primary" value="Login"/>
+					<div class="col-md-20">
+						<lavel>Confirm password:</lavel><br>
+						<input class="form-control form-control-sm" id="register-confirmpassword" type="Password" name="confirmPassword">
+					</div>
 				</div>
 				<div class="form-group row">
-					<div class="col-md-20">
-						<p id="register">Don't you have an acount? <a href="{{ url('/login/register') }}">register here</a>.</p>
+					<div class="col-md-6">
+						<a class="btn btn-danger" href="{{url('/login')}}">Cancel</a>
+					</div>
+					<div class="col-md-6">
+						<input type="submit" name="Register" class="btn btn-primary" value="Register"/>
 					</div>
 				</div>
 			</form>

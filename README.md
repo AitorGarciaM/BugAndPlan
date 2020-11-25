@@ -70,12 +70,11 @@ composer install
 ```sh
 php artisan key:generate
 ```
-6. to create new users (temporarily) open the database/seeds/UserTableSeeders.php and edit the users are in the file.
-7. To push the database info stored in the seeders run the following command:
+6. To push the database info stored in the seeders run the following command:
 ```sh
 php artisan db:seed
 ```
-8. To test the application in local use:
+7. To test the application in local use:
 ```sh
 php artisan serve
 ```

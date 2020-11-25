@@ -22,6 +22,9 @@ Route::post('/login/checkLogin', 'loginController@checkLogin');
 Route::get('/login/successlogin', 'loginController@successlogin');
 Route::get('/login/logout', 'loginController@logout');
 
+Route::view('/login/register', 'register');
+Route::post('login/register', 'loginController@registerUser');
+
 Route::get('/', 'WorkspaceController@showProjectsInWorkspace');
 
 Route::post('/create-project', 'ProjectsController@createProject');
